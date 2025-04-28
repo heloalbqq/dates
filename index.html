@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lista de Dates Românticos ❤️</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      width: 90%;
+      max-width: 500px;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    h1 {
+      color: #e75480;
+      margin-bottom: 1rem;
+      font-size: 2rem;
+      animation: pulse 2s infinite;
+    }
+
+    input {
+      padding: 0.5rem;
+      border: 2px solid #ffc1cc;
+      border-radius: 10px;
+      width: 70%;
+      margin-right: 0.5rem;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff1493;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 1rem;
+    }
+
+    li {
+      background-color: #ffe4e1;
+      padding: 0.6rem;
+      margin-bottom: 0.5rem;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    li:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🌹 Lugares para nosso próximo date 🌹</h1>
+    <input type="text" id="inputLugar" placeholder="Adicionar lugar romântico..." />
+    <button onclick="adicionarLugar()">Adicionar 💖</button>
+    <ul id="listaDates"></ul>
+  </div>
+
+  <script>
+    // Carrega os dados ao abrir a página
+    window.onload = function () {
+      const listaSalva = localStorage.getItem('listaDates');
+      if (listaSalva) {
+        const lugares = JSON.parse(listaSalva);
+        lugares.forEach(lugar => {
+          adicionarLugarNaTela(lugar.texto, lugar.riscado);
+        });
+      }
+    };
+
+    function adicionarLugar() {
+      const input = document.getElementById('inputLugar');
+      const texto = input.value.trim();
+      if (texto !== '') {
+        adicionarLugarNaTela(texto, false);
+        salvarLista();
+        input.value = '';
+      }
+    }
+
+    function adicionarLugarNaTela(texto, riscado) {
+      const li = document.createElement('li');
+      li.textContent = texto;
+
+      if (riscado) {
+        li.style.textDecoration = 'line-through';
+        li.style.opacity = '0.6';
+      }
+
+      li.addEventListener('click', () => {
+        li.style.textDecoration = li.style.textDecoration === 'line-through' ? 'none' : 'line-through';
+        li.style.opacity = li.style.opacity === '0.6' ? '1' : '0.6';
+        salvarLista();
+      });
+
+      document.getElementById('listaDates').appendChild(li);
+    }
+
+    function salvarLista() {
+      const itens = document.querySelectorAll('#listaDates li');
+      const lista = [];
+      itens.forEach(li => {
+        lista.push({
+          texto: li.textContent,
+          riscado: li.style.textDecoration === 'line-through'
+        });
+      });
+      localStorage.setItem('listaDates', JSON.stringify(lista));
+    }
+  </script>
+</body>
+</html>
