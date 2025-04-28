@@ -1,0 +1,114 @@
+@media (max-width: 767px) {
+    body {
+      font-size: 16px; /* Aumentar a fonte para melhor leitura em mobile */
+    }
+    .menu {
+      display: none; /* Ocultar o menu principal */
+    }
+    .menu-mobile {
+      display: block; /* Exibir um menu otimizado para mobile */
+    }
+    .coluna {
+      width: 100%; /* Fazer as colunas ocuparem toda a largura e empilharem */
+      float: none;
+    }
+  }
+
+body{
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+h1{
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.preferidona{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 500px;
+    height: 500px;
+}
+
+.pequenas{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 260px;
+    height: 260px;
+}
+
+.linha-com-texto {
+    position: relative; 
+    text-align: center;
+  }
+  
+  .linha-com-texto hr {
+    border: 0;
+    border-top: 1px solid gray; /* Estilo da linha */
+    width: 100%;
+  }
+  
+  .linha-com-texto span {
+    background-color: white; /* Para cobrir a linha por baixo do texto */
+    padding: 0 10px; /* Espaçamento ao redor do texto */
+    position: absolute; /* Permite posicionar o texto */
+    top: 50%; /* Centraliza verticalmente (aproximadamente) */
+    left: 50%; /* Centraliza horizontalmente (aproximadamente) */
+    transform: translate(-50%, -50%); /* Centraliza precisamente */
+    font-size:11px;
+  }
+
+  .container {
+    overflow: auto; /* Ou outra forma de conter floats */
+  }
+  
+  .esquerda {
+    float: left;
+    margin-right: 20px; /* Espaçamento entre a foto e o texto */
+    width: 250px;
+    height: 300px;
+  }
+  
+  .direita, p {
+    font-size: 11.5px;
+    /* O texto preencherá o espaço restante à direita */
+  }
+
+  .porOndeEuFor {
+    overflow: auto; /* Ou outra forma de conter floats */
+  }
+  
+  .direita1 {
+    float: right;
+    margin-right: 20px; /* Espaçamento entre a foto e o texto */
+    width: 250px;
+    height: 300px;
+  }
+  
+  .esquerda1, p {
+    font-size: 11.5px;
+    /* O texto preencherá o espaço restante à direita */
+  }
+
+  #par{
+    font-size: 105%;
+  }
+
+  .nossaHistoria {
+    overflow: auto; /* Ou outra forma de conter floats */
+  }
+  
+  .esquerda {
+    float: left;
+    margin-right: 20px; /* Espaçamento entre a foto e o texto */
+    width: 250px;
+    height: 300px;
+  }
+  
+  .direita, p {
+    font-size: 11.5px;
+    /* O texto preencherá o espaço restante à direita */
+  }
+

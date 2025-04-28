@@ -3,148 +3,127 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lista de Dates Românticos ❤️</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #ff9a9e, #fad0c4);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
-
-    .container {
-      background-color: white;
-      padding: 2rem;
-      border-radius: 20px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-      text-align: center;
-      width: 90%;
-      max-width: 500px;
-      animation: fadeIn 1.5s ease-in-out;
-    }
-
-    h1 {
-      color: #e75480;
-      margin-bottom: 1rem;
-      font-size: 2rem;
-      animation: pulse 2s infinite;
-    }
-
-    input {
-      padding: 0.5rem;
-      border: 2px solid #ffc1cc;
-      border-radius: 10px;
-      width: 70%;
-      margin-right: 0.5rem;
-    }
-
-    button {
-      padding: 0.5rem 1rem;
-      background-color: #ff69b4;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    button:hover {
-      background-color: #ff1493;
-    }
-
-    ul {
-      list-style: none;
-      padding: 0;
-      margin-top: 1rem;
-    }
-
-    li {
-      background-color: #ffe4e1;
-      padding: 0.6rem;
-      margin-bottom: 0.5rem;
-      border-radius: 10px;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-
-    li:hover {
-      transform: scale(1.05);
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-    }
-  </style>
+  <title>helo´s</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>🌹 Lugares para nosso próximo date 🌹</h1>
-    <input type="text" id="inputLugar" placeholder="Adicionar lugar romântico..." />
-    <button onclick="adicionarLugar()">Adicionar 💖</button>
-    <ul id="listaDates"></ul>
+  <h1>Helo´s</h1>
+  <hr>
+  <br>
+  <img src="imagens/preferidona.jpg" alt="foto preferida" class="preferidona">
+  <br>
+  <img src="imagens/postoBeijinho.jpg" alt="Posto1" class="pequenas">
+  <br>
+  <img src="imagens/preferida.jpg" alt="preferida" class="pequenas">
+  <br>
+  <img src="imagens/postoPorCima.jpg" alt="balada" class="pequenas">
+  <br>
+  <div class="linha-com-texto">
+    <hr>
+    <span>Edição especial</span>
   </div>
+  <br>
+  <hr>
+  <hr>
+  <h1>Melhor casal do ano</h1>
+  <hr>
+  <hr>
+  <br>
+  <img src="imagens/metropole.jpg" alt="" class="preferidona">
+  <br>
+  <div class="feitasUmaParaOutra">
+    <img src="imagens/nautico.jpg" alt="Sua Foto" class="esquerda">
+    <div class="direita">
+      <h3>Feitas uma para a outra</h3>
+      <p>Há pessoas que se encontram como quem descobre um lar. Sem esforço, sem avisos, sem promessas grandiosas. Apenas chegam e, de repente, é como se sempre tivessem estado lá. Elas se reconhecem nos silêncios, nas risadas espontâneas, no jeito como os olhos se procuram em meio à multidão. Não é questão de coincidência nem de destino traçado em estrelas: é como se cada pedaço da vida tivesse sido, silenciosamente, uma preparação para aquele momento. Dois seres que, mesmo sem saber, caminhavam um em direção ao outro — como rios diferentes que, inevitavelmente, encontram-se no mar. Eles não se completam, porque já eram inteiros. Mas juntos, transbordam.</p>
+    </div>
+    <div style="clear: both;"></div> </div>
+    <br>
+    <div class="linha-com-texto">
+      <hr>
+      <span>01.03.2025</span>
+    </div>
+    <br>
+    <hr>
+    <hr>
+    <div class="PorOndeEuFor">
+      <img src="imagens/postoAbraco.jpg" alt="Sua Foto" class="direita1">
+      <div class="esquerda1">
+        <h3 id="par">Por onde for quero ser seu par</h3>
+        <p>E a gente canta <br>
+          E a gente dança <br>
+          E a gente não se cansa <br>
+          De ser criança <br>
+          A gente brinca <br>
+          Na nossa velha infância <br>
+          <br>
+          Seus olhos, meu clarão <br>
+          Me guiam dentro da escuridão <br>
+          Seus pés me abrem o caminho <br>
+          Eu sigo e nunca me sinto só <br>
+          <br>
+          Você é assim <br>
+          Um sonho pra mim <br>
+          Você é assim <br>
+          <br>
+          Por onde for quero ser seu par <br>
+          Por onde for quero ser seu par</p>
+      </div>
+      <div style="clear: both;"></div> </div>
+      <br>
+      <hr>
+      <hr>
+      <br>
 
-  <script>
-    // Carrega os dados ao abrir a página
-    window.onload = function () {
-      const listaSalva = localStorage.getItem('listaDates');
-      if (listaSalva) {
-        const lugares = JSON.parse(listaSalva);
-        lugares.forEach(lugar => {
-          adicionarLugarNaTela(lugar.texto, lugar.riscado);
-        });
-      }
-    };
-
-    function adicionarLugar() {
-      const input = document.getElementById('inputLugar');
-      const texto = input.value.trim();
-      if (texto !== '') {
-        adicionarLugarNaTela(texto, false);
-        salvarLista();
-        input.value = '';
-      }
-    }
-
-    function adicionarLugarNaTela(texto, riscado) {
-      const li = document.createElement('li');
-      li.textContent = texto;
-
-      if (riscado) {
-        li.style.textDecoration = 'line-through';
-        li.style.opacity = '0.6';
-      }
-
-      li.addEventListener('click', () => {
-        li.style.textDecoration = li.style.textDecoration === 'line-through' ? 'none' : 'line-through';
-        li.style.opacity = li.style.opacity === '0.6' ? '1' : '0.6';
-        salvarLista();
-      });
-
-      document.getElementById('listaDates').appendChild(li);
-    }
-
-    function salvarLista() {
-      const itens = document.querySelectorAll('#listaDates li');
-      const lista = [];
-      itens.forEach(li => {
-        lista.push({
-          texto: li.textContent,
-          riscado: li.style.textDecoration === 'line-through'
-        });
-      });
-      localStorage.setItem('listaDates', JSON.stringify(lista));
-    }
-  </script>
+      <div class="nossaHistoria">
+        <img src="imagens/metropoleEspelho.jpg" alt="Sua Foto" class="esquerda">
+        <div class="direita">
+          <h3>Contagem desde o início</h3>
+          <p>Contagem iniciada em:</p>
+          <div id="dataInicialExibicao">01 de março de 2025</div>
+          <p>Desde então, já se passaram:</p>
+          <div id="contador">0 dias, 0 horas, 0 minutos, 0 segundos</div>
+          <p></p>
+        </div>
+        <div style="clear: both;"></div>
+      </div>
+      
+      <script>
+        let dataInicial;
+        let intervalo;
+      
+        function iniciarContadorDataFixa() {
+          // Define a data inicial para 01 de março de 2025, 00:00:00 (UTC)
+          dataInicial = new Date('2025-03-01');
+      
+          // Formata a data para exibição (opcional)
+          const options = { year: 'numeric', month: 'long', day: 'numeric' };
+          const dataInicialFormatada = dataInicial.toLocaleDateString(undefined, options);
+          document.getElementById('dataInicialExibicao').innerText = dataInicialFormatada;
+      
+          intervalo = setInterval(atualizarContador, 1000);
+        }
+      
+        function atualizarContador() {
+          const agora = new Date();
+          const diferenca = agora.getTime() - dataInicial.getTime();
+      
+          if (diferenca < 0) {
+            document.getElementById('contador').innerText = "A data inicial ainda não chegou!";
+            clearInterval(intervalo);
+            return;
+          }
+      
+          const segundos = Math.floor(diferenca / 1000) % 60;
+          const minutos = Math.floor(diferenca / (1000 * 60)) % 60;
+          const horas = Math.floor(diferenca / (1000 * 60 * 60)) % 24;
+          const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+      
+          document.getElementById('contador').innerText = `${dias} dias, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
+        }
+      
+        // Inicia o contador automaticamente quando a página carrega
+        window.onload = iniciarContadorDataFixa;
+      </script>
 </body>
 </html>
