@@ -78,52 +78,116 @@
       <div class="nossaHistoria">
         <img src="imagens/metropoleEspelho.jpg" alt="Sua Foto" class="esquerda">
         <div class="direita">
-          <h3>Contagem desde o início</h3>
-          <p>Contagem iniciada em:</p>
-          <div id="dataInicialExibicao">01 de março de 2025</div>
-          <p>Desde então, já se passaram:</p>
-          <div id="contador">0 dias, 0 horas, 0 minutos, 0 segundos</div>
-          <p></p>
+            <h3>❤️ Contagem desde o início ❤️</h3>
+            <p></p>
+            <div id="dataInicialExibicao"></div>
+            <p>Desde então, já se passaram:</p>
+            <div class="contador-estilizado">
+                <div class="bloco-tempo">
+                    <span id="dias" class="numero">00</span>
+                    <div class="unidade">Dias</div>
+                </div>
+                <div class="bloco-tempo">
+                    <span id="horas" class="numero">00</span>
+                    <div class="unidade">Horas</div>
+                </div>
+                <div class="bloco-tempo">
+                    <span id="minutos" class="numero">00</span>
+                    <div class="unidade">Minutos</div>
+                </div>
+                <div class="bloco-tempo">
+                    <span id="segundos" class="numero">00</span>
+                    <div class="unidade">Segundos</div>
+                </div>
+            </div>
+            <p></p>
         </div>
         <div style="clear: both;"></div>
+    </div>
+    <br>
+    <hr>
+    <hr>
+    <br>
+    <br>
+    
+    <div class="imagem-texto">
+      <img src="imagens/pngtree-background-retro-letter-paper-image_773291.jpg" alt="umMes" class="umMes">
+      <div class="textoImagem">
+          
+          <p>Te amar é uma equação sem incógnita,<br>
+             Uma função contínua sem final. <br>
+             Uma soma eterna dos dias com você, <br>
+             A raíz do meu amor, do meu número perfeito. <br>
+             <br>
+             Em código, te declaro meu laço: <br>
+             while(true) { amar(helo); } <br>
+             sem falhas, sem erros, <br>
+             meu sistema entende: só quero você. <br>
+             <br>
+             Seu sorriso é minha variável global, <br>
+             Meu vetor predileto, meu algoritmo perfeito. <br>
+             No cálculo do tempo, na lógica do espaço-tempo, <br>
+             Te amar é uma constante - é vital. <br>
+
+          </p>
       </div>
-      
-      <script>
-        let dataInicial;
-        let intervalo;
-      
-        function iniciarContadorDataFixa() {
-          // Define a data inicial para 01 de março de 2025, 00:00:00 (UTC)
-          dataInicial = new Date('2025-03-01');
-      
-          // Formata a data para exibição (opcional)
-          const options = { year: 'numeric', month: 'long', day: 'numeric' };
-          const dataInicialFormatada = dataInicial.toLocaleDateString(undefined, options);
-          document.getElementById('dataInicialExibicao').innerText = dataInicialFormatada;
-      
-          intervalo = setInterval(atualizarContador, 1000);
-        }
-      
-        function atualizarContador() {
-          const agora = new Date();
-          const diferenca = agora.getTime() - dataInicial.getTime();
-      
-          if (diferenca < 0) {
-            document.getElementById('contador').innerText = "A data inicial ainda não chegou!";
-            clearInterval(intervalo);
-            return;
+  </div>
+  <br>
+  <hr>
+  <hr>
+  <br>
+  <br>
+  <br>
+    </div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+          const dataInicial = new Date(2025, 2, 1, 4, 30, 0); // 1 de Março de 2025
+
+          const diasElement = document.getElementById('dias');
+          const horasElement = document.getElementById('horas');
+          const minutosElement = document.getElementById('minutos');
+          const segundosElement = document.getElementById('segundos');
+          const dataInicialExibicaoElement = document.getElementById('dataInicialExibicao');
+
+          function formatTime(tempo) {
+              return tempo < 10 ? `0${tempo}` : tempo;
           }
-      
-          const segundos = Math.floor(diferenca / 1000) % 60;
-          const minutos = Math.floor(diferenca / (1000 * 60)) % 60;
-          const horas = Math.floor(diferenca / (1000 * 60 * 60)) % 24;
-          const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-      
-          document.getElementById('contador').innerText = `${dias} dias, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
-        }
-      
-        // Inicia o contador automaticamente quando a página carrega
-        window.onload = iniciarContadorDataFixa;
-      </script>
+
+          function atualizarContador() {
+              const agora = new Date();
+              const diferenca = agora.getTime() - dataInicial.getTime();
+
+              if (diferenca < 0) {
+                  diasElement.textContent = '00';
+                  horasElement.textContent = '00';
+                  minutosElement.textContent = '00';
+                  segundosElement.textContent = '00';
+                  return;
+              }
+
+              const segundosTotais = Math.floor(diferenca / 1000);
+              const minutosTotais = Math.floor(segundosTotais / 60);
+              const horasTotais = Math.floor(minutosTotais / 60);
+              const dias = Math.floor(horasTotais / 24);
+
+              const segundos = segundosTotais % 60;
+              const minutos = minutosTotais % 60;
+              const horas = horasTotais % 24;
+
+              diasElement.textContent = formatTime(dias);
+              horasElement.textContent = formatTime(horas);
+              minutosElement.textContent = formatTime(minutos);
+              segundosElement.textContent = formatTime(segundos);
+          }
+
+          const diaInicial = formatTime(dataInicial.getDate());
+          const mesInicial = new Intl.DateTimeFormat('pt-BR', { month: 'long' }).format(dataInicial);
+          const anoInicial = dataInicial.getFullYear();
+          dataInicialExibicaoElement.textContent = `${diaInicial} de ${mesInicial} de ${anoInicial}`;
+
+          setInterval(atualizarContador, 1000);
+      });
+  </script>
 </body>
 </html>
