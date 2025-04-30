@@ -251,6 +251,17 @@ hr {
   height: auto;
 }
 
+.video{
+  max-width: 100%;
+  height: auto;
+  
+}
+
+.video1{
+  display: flex;
+  justify-content: center;
+}
+
 /* Media query para telas menores que 600px (celulares menores) */
 @media (max-width: 600px) {
   .esquerda, .direita1 {
@@ -266,4 +277,6 @@ hr {
   .linha-com-texto span {
       font-size: 0.7em;
   }
+
+
 }
